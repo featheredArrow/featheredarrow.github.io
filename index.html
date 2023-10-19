@@ -20,7 +20,7 @@
 	<script>
 		const canvas = document.getElementById('canvas');
 		const ctx = canvas.getContext('2d');
-		const header = document.getElementById('navid');
+		
         
         
 		let angle = 0;
@@ -115,7 +115,7 @@
             
 //canvas stuff
 			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight - header.clientHeight;
+			canvas.height = window.innerHeight
             
             
             ppangle = pangle;
@@ -407,7 +407,7 @@
 		}
 
 		function resizeCanvas() {
-			canvas.height = window.innerHeight - header.offsetHeight;
+			canvas.height = window.innerHeight
 		}
 
 		document.addEventListener('keydown', function(event) {
