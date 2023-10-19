@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cool website</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="aaa.css">
+	<script src="scripts.js"></script>
+	<style>
+		body {
+			background-color: #202A2E;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id="canvas"></canvas>
+
+	<script>
+		const canvas = document.getElementById('canvas');
+		const ctx = canvas.getContext('2d');
+		const header = document.getElementById('navid');
+        
+        
+		let angle = 0;
+        let ppangle = 0;
+		const rad = 100;
+        let pangle = 0;
+		let spinDirection = 0;
+        let speedMult = 2;
+        let finalSpeed = 0;
+        let m = 1;
+        let keydown = 0;
+        let inv = false;
+        let t = 1;
+        let panrem = 0;
+        let pan = 0;
+        const wide = 1000;
+        const gd = 60; //higher value = more spaced out ground dots
+        const vd = 20; //higher value = more vertically spaced dots
+        const fd = 25; //first dot y value
+        let backbushes = [];
+        let backerbushes = [];
+        let backtrees = [];
+        let backertrees = [];
+        
+        
+        function circle(x, y, rad){
+            ctx.beginPath();
+            ctx.arc(x,y,rad,0,Math.PI*2);
+            ctx.fill();
+        };
+        function circles(x, y, rad){
+            ctx.beginPath();
+            ctx.arc(x,y,rad,0,Math.PI*2);
+            ctx.stroke();
+        };
+        function tree(x, thick){
+            ctx.fillRect(x, 0, thick, -500);
+        };
+        function addbacktree(min, max, tmin, tmax){
+            let treex = min+Math.floor(Math.random()*(max-min));
+            let treer = tmin+Math.floor(Math.random()*(tmax-tmin));
+            backtrees.push({x: treex, r:treer});
+        };
+        function addbackertree(min, max, tmin, tmax){
+            let treex = min+Math.floor(Math.random()*(max-min));
+            let treer = tmin+Math.floor(Math.random()*(tmax-tmin));
+            backertrees.push({x: treex, r:treer});
+        };
+        function addbackbush(min, max, tmin, tmax){
+            let bushx = min+Math.floor(Math.random()*(max-min));
+            let bushr = tmin+Math.floor(Math.random()*(tmax-tmin));
+            backbushes.push({
+                x: bushx,
+                r: bushr
+            });
+            
+            
+        };
+        function addbackerbush(min, max, tmin, tmax){
+            let bushx = min+Math.floor(Math.random()*(max-min));
+            let bushr = tmin+Math.floor(Math.random()*(tmax-tmin));
+            backerbushes.push({
+                x: bushx,
+                r: bushr
+            });
+            
+            
+        };
+        function drawbush(x,r){
+            ctx.beginPath();
+            ctx.arc(x,-10,r,0,Math.PI*2);
+            ctx.fill();
+        };
+        function drawtree(x, r){
+            ctx.fillRect(x,0,r,0-canvas.height);
+        };
+        
+        
+        for(var i = 0; i <wide/5; i++){
+            addbackbush(0-wide,wide,15,40);
+            addbackerbush(0-wide,wide,20,60);
+        }
+        for(var i = 0; i <wide/50; i++){
+            addbacktree(0-wide,wide,15,30);
+            addbackertree(0-wide,wide,5,20);
+        }
+        
+        
+		function draw() {
+            
+            
+            
+//canvas stuff
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight - header.clientHeight;
+            
+            
+            ppangle = pangle;
+            pangle = angle;
+            
+            spinDirection += keydown;
+            if((Math.abs(angle% (2*Math.PI)) > 0.8 && Math.abs(angle% (2*Math.PI)) < 2*Math.PI-0.5) || (Math.abs(pangle-ppangle)>0.05)) {
+                inv = true;
+            } else {
+                inv = false;
+            }
+            if (keydown === 0 && inv === false){
+                t+=0.05;
+                t = Math.min(t,2);
+                //t = Math.max(t,-1);
+            } else {
+                
+                t-=0.1;
+                t= Math.min(Math.max(t,0),2);
+            }
+            m = 0.125*Math.pow((t-2),3)+1;
+            
+            
+			const img = new Image();
+			img.src = 'shell.png';
+
+            
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			ctx.save();
+
+			ctx.translate(canvas.width / 2, canvas.height *0.75+50);
+            //ground = canvas.height*0.25+
+            
+            
+         spinDirection = Math.min(Math.max(spinDirection, -1), 1);
+
+			if (spinDirection < 0) {
+				spinDirection += 0.01;
+			} else if (spinDirection > 0) {
+				spinDirection -= 0.01;
+			}
+            finalSpeed = spinDirection * speedMult;
+			angle += 0.05 * finalSpeed;
+            if(finalSpeed<0.05 && finalSpeed>-0.05){
+                finalSpeed = 0;
+            }
+            pan -= finalSpeed*1.2;
+            if (Math.abs(angle-pangle)<0.005){
+                angle = pangle;
+            }
+            
+            
+            
+            ctx.translate(pan,0);
+
+                   /**
+                  #202A2E       dark blue
+                  #263840       quite darkish blue
+                  #2d4752       darkish blue
+                  #63C7F2       light blue
+                  #496C7A       grey blue
+                  #695C4E       brown
+                  #F2901F       orange
+            **/
+            
+            
+            
+            
+            //BACKGROUND 0.2
+            ctx.restore();
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height *0.75+50);
+            ctx.translate(pan*0.2,0);
+            ctx.fillStyle = "#202f36";
+            
+            /**tree(60,20);
+            tree(290,15);
+            tree(-200,20);
+            tree(-400,40);
+            tree(-5,10);
+            tree(-90,10);
+            tree(-230,24);
+            tree(230,11);
+            tree(430,10);**/
+            for(var i = 0; i <backerbushes.length; i++){
+                drawbush(backerbushes[i].x,backerbushes[i].r);
+            }
+            for(var i = 0; i <backertrees.length; i++){
+                drawtree(backertrees[i].x,backertrees[i].r);
+            }
+            
+            
+            
+            //BACKGROUND 0.5
+            ctx.restore();
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height *0.75+50);
+            ctx.translate(pan*0.5,0);
+            ctx.fillStyle = "#263840";
+            /**
+            tree(110,40);
+            tree(270,25);
+            tree(-200,30);
+            tree(-400,40);
+            tree(-5,30);
+            tree(-130,20);
+            tree(-270,34);
+            tree(200,31);
+            tree(400,20);**/
+            for(var i = 0; i <backbushes.length; i++){
+                drawbush(backbushes[i].x,backbushes[i].r);
+            }
+            for(var i = 0; i <backtrees.length; i++){
+                drawtree(backtrees[i].x,backtrees[i].r);
+            }
+            
+            //BACKGROUND 0.8
+            ctx.restore();
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height *0.75+50);
+            ctx.translate(pan*0.8,0);
+            ctx.fillStyle = "#2d4752";
+            //rectp(-200,50,50,-150)
+            /**
+            ctx.beginPath();
+            ctx.moveTo(-205,0);
+            ctx.lineTo(-220,-70);
+            ctx.lineTo(-160,-70);
+            ctx.lineTo(-175,0);
+            ctx.lineTo(-205,0);
+            ctx.fill();**/
+            
+            circle(-300,-80,100);
+            circle(-210,-40,50);
+            circle(-380,-40,120);
+            
+            circle(300,-60,110);
+            circle(200,-20,60);
+            circle(370,0,70);
+            
+            
+            
+            
+            
+            //MIDGROUND
+            ctx.restore();
+            ctx.save();
+            
+            ctx.translate(canvas.width / 2, canvas.height *0.75+50);
+            
+            
+            
+            ctx.translate(pan,0);
+            
+            //slug
+            ctx.fillStyle = "#F2901F";
+            ctx.strokeStyle = "#F2901F";
+            ctx.lineWidth = 5;
+            ctx.fillRect(200,-40,200,40);   
+            ctx.beginPath();
+            ctx.arc(200,-20,20,0,2*Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(400,-20,20,0,2*Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(210,-35);
+            ctx.lineTo(170,-55);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(220,-35);
+            ctx.lineTo(205,-65);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(205,-65,5,0,2*Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(170,-55,5,0,2*Math.PI);
+            ctx.fill();
+            ctx.strokeStyle = "#695C4E";
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(212,-20,8,0,Math.PI);
+            ctx.stroke();
+            ctx.fillStyle = "#695C4E";
+            ctx.lineWidth=1.5;
+            circle(300,-20,3);
+            circle(250,-30,5);
+            circle(280,-34,4);
+            circle(325,-30,5);
+            circle(350,-25,6);
+            circle(370,-33,5);
+            
+            
+            
+            
+            
+            
+            //ground
+            ctx.restore();
+            ctx.save();
+            
+            ctx.translate(canvas.width / 2, canvas.height *0.75+50);
+            //ground
+            ctx.fillStyle = "#695C4E";
+            ctx.fillRect(0-canvas.width/2,0,canvas.width,canvas.height*0.25-30);
+            ctx.fillStyle = "#2d4752";
+            panrem = (pan % gd);
+            for (i = 0; i < (Math.floor(canvas.width/gd)+2); i++){
+                circle(i*gd-canvas.width/2+gd/2+panrem-gd, fd,9);
+                circle(i*gd-canvas.width/2+panrem-gd,    fd+vd,8);
+                circle(i*gd-canvas.width/2+panrem+gd/2-gd, fd+2*vd,7);
+                circle(i*gd-canvas.width/2+panrem-gd,    fd+3*vd,6);
+                circle(i*gd-canvas.width/2+panrem+gd/2-gd,fd+4*vd,5);
+                circle(i*gd-canvas.width/2+panrem-gd,   fd+5*vd,4);
+                circle(i*gd-canvas.width/2+panrem+gd/2-gd,fd+6*vd,3);
+                circle(i*gd-canvas.width/2+panrem-gd,   fd+7*vd,2);
+                circle(i*gd-canvas.width/2+panrem+gd/2-gd,fd+8*vd,1);
+            }
+            
+            
+            
+            ctx.restore();
+            ctx.save();
+            
+            
+            ctx.translate(canvas.width / 2, canvas.height *0.75);
+            
+            
+            
+            
+            if(m>0) {
+                ctx.fillStyle = "#496C7A";
+                //ctx.fillRect(0,0,500,500);
+                ctx.fillRect(-60*m,20,150*m,30);
+                ctx.beginPath();
+                ctx.ellipse(-60*m,35,15,15,0,0,2*Math.PI);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.ellipse(90*m,35,15,15,0,0,2*Math.PI);
+                ctx.fill();
+                ctx.fillRect(85*m-15,-30,5,60);
+                ctx.fillRect(85*m,-30,5,60);
+                ctx.beginPath();
+                ctx.ellipse(85*m-12.5,-30,5,5,0,0,2*Math.PI);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.ellipse(85*m+2.5,-30,5,5,0,0,2*Math.PI);
+                ctx.fill();
+                
+                ctx.strokeStyle = "#202A2E";
+                ctx.lineWidth=2;
+                ctx.beginPath();
+                ctx.arc(85*m-5,30,10,0,Math.PI);
+                ctx.stroke();
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+			ctx.rotate(angle);
+
+			ctx.drawImage(img, -rad / 2, -rad / 2, rad, rad);
+            
+			ctx.restore();
+            ctx.save();
+            
+
+            
+            
+			requestAnimationFrame(draw);
+		}
+
+		function resizeCanvas() {
+			canvas.height = window.innerHeight - header.offsetHeight;
+		}
+
+		document.addEventListener('keydown', function(event) {
+			if (event.keyCode === 68 || event.keyCode === 100) {
+				// D key
+                keydown=0.02;
+				//spinDirection += 0.2;
+			} else if (event.keyCode === 65 || event.keyCode === 97) {
+				// A key
+                keydown=-0.02;
+				//spinDirection -= 0.2;
+			}
+		});
+
+		document.addEventListener('keyup', function(event) {
+			if (event.keyCode === 68 || event.keyCode === 100) {
+				// D key
+                keydown=0;
+
+				//spinDirection -= 0.05;
+			} else if (event.keyCode === 65 || event.keyCode === 97) {
+				// A key
+                keydown=0;
+
+				//spinDirection += 0.05;
+			}
+		});
+
+		window.addEventListener('resize', resizeCanvas);
+
+		draw();
+	</script>
+</body>
+</html>
