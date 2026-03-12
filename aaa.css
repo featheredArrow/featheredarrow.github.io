@@ -7,15 +7,7 @@
 .page {
     background: var(--bg);
 }
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    height: 90vh;
-    gap: 4px;
-}
+    
 .hdiv {
     display: flex;
     flex-direction: row;
@@ -30,62 +22,175 @@
     justify-content: center;
     gap: 24px
 }
-h1 {
-    color: #000;
-
-    text-align: center;
-    font-family: "Just Me Again Down Here", cursive;
-    font-size: 12vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.tx {
-    font-family: "B612 Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3.5vw;
     
-}
 
 
-.text_field {
-    border-radius: 4vw;
-    padding: 8px;
-    text-align: center;
-    font-family: "B612 Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3.5vw;
-    border: 2px solid var(--accent);
-    background: var(--transaccent);
-    transition: border 0.2s ease;
-    width:40vw;
-    height: 7vw;
 
-}
-.text_field:hover {
-    border: 2px solid var(--active);
-}
 
-.text_field:focus {
-    border: 2px solid var(--active);
-}
 
-.submit {
-    font-family: "B612 Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3.5vw;;
-    border-radius: 4vw;
-    background: var(--accent);
-    cursor: pointer; /* Change cursor to a hand icon on hover */
-    transition: background-color 0.2s ease;
-    border: 0px;
-    padding: 12px;
-    
-}
+
 
 .submit:hover {
     background: var(--active);
+}
+
+
+@media (pointer: coarse) {
+    #date_txt {
+        font-size: 3.5vw;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 90vh;
+        gap: 4px;
+    }
+    .tx {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.5vw;
+        
+    }
+    .tx_small {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3vw;
+        
+    }
+    .tx_large {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 5vw;
+        
+    }
+    h1 {
+        color: #000;
+        text-align: center;
+        font-family: "Just Me Again Down Here", cursive;
+        font-size: 12vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .text_field {
+        border-radius: 4vw;
+        padding: 8px;
+        text-align: center;
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.5vw;
+        border: 2px solid var(--accent);
+        background: var(--transaccent);
+        transition: border 0.2s ease;
+        width:40vw;
+        height: 7vw;
+
+    }
+    .text_field:hover {
+        border: 2px solid var(--active);
+    }
+
+    .text_field:focus {
+        border: 2px solid var(--active);
+    }
+    .submit {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.5vw;;
+        border-radius: 4vw;
+        background: var(--accent);
+        cursor: pointer; /* Change cursor to a hand icon on hover */
+        transition: background-color 0.2s ease;
+        border: 0px;
+        padding: 12px;
+        
+    }
+}
+
+@media (pointer: fine) {
+    #date_txt {
+        font-size: medium;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        gap: 4px;
+        height: 90vh;
+    }
+    .tx {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: medium;
+        
+    }
+    .tx_small {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: small;
+        
+    }
+    .tx_large {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: large;
+        
+    }
+    h1 {
+        color: #000;
+        text-align: center;
+        font-family: "Just Me Again Down Here", cursive;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .text_field {
+        border-radius: 16px;
+        padding: 8px;
+        text-align: center;
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: medium;
+        border: 2px solid var(--accent);
+        background: var(--transaccent);
+        transition: border 0.2s ease;
+        width:40vw;
+        height: 30px;
+
+    }
+    .text_field:hover {
+        border: 2px solid var(--active);
+    }
+
+    .text_field:focus {
+        border: 2px solid var(--active);
+    }
+    .submit {
+        font-family: "B612 Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: medium;
+        border-radius: 16px;
+        background: var(--accent);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        border: 0px;
+        padding: 12px;
+        
+    }
 }

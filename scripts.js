@@ -14,6 +14,7 @@ function err(text) {
 }
 async function get_data(text) {
   try {
+    err("...");
     const u = app_url + "?str=" + text;
     const response = await fetch(u, {
         method: 'GET',
