@@ -31,7 +31,7 @@ async function get_data(text) {
         document.getElementById("results").style.visibility = 'visible';
         document.getElementById("msg_txt").textContent = data[2];
         document.getElementById("date_txt").textContent = data[1];
-        document.getElementById("str_txt").textContent = data[0];
+        document.getElementById("str_txt").textContent = data[0] + " ";
     } else{
         
         err("this star doesn't exist!");
