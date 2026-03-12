@@ -6,10 +6,13 @@
   --normal_text: 20px;
   --small_text: 16px;
   --large_text: 24px;
+  --input-width: 200px;
 
 }
 @media (pointer: coarse) {
-    
+    :root {
+        --input-width: 60vw;
+    }
     
 }
 .page {
@@ -97,7 +100,7 @@
         border: 2px solid var(--accent);
         background: var(--transaccent);
         transition: border 0.2s ease;
-        width:200px;
+        width:var(--input-width);
         height: 30px;
 
     }
