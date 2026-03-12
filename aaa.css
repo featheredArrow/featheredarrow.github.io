@@ -1,0 +1,99 @@
+
+/**
+                  #202A2E       dark blue
+                  #63C7F2       light blue
+                  #496C7A       grey blue
+                  #695C4E       brown
+                  #F2901F       orange
+                  **/
+
+body {
+    background-color: #202A2E;
+    margin: 0px;
+    padding: 0px;
+}
+
+#belowcanv {
+    font-family: 'Futura', sans-serif;
+    font-weight: 150;
+    color:purple;
+    
+}
+
+.def {
+    font-family: 'Futura', sans-serif;
+    font-weight: 100;
+    color: white;
+}
+.button {
+    border-radius: 8px;
+    background-color: #496C7A;
+    border: none;
+    font-family: 'Futura', sans-serif;
+    font-weight: 100;
+    
+    color: white;
+}
+
+h2 {
+    font-family: 'Futura', sans-serif;
+    font-weight: 150;
+    color: white;
+}
+
+#canv {
+    border-bottom: solid;
+    border-bottom-width: 4px;
+    border-bottom-color: #FFFFFF;
+    
+    
+}
+.navtitle {
+    color: #202A2E;
+    float:left;
+    padding: 16px;
+    text-align: center;
+    float: right;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: 'Futura', sans-serif;
+    font-weight: 150;
+    margin: 0px;
+}
+.body2 {
+    margin: 16px;
+}
+.nav {
+    background-color: white;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    
+}
+.nav a {
+    color: #202A2E;
+    float:left;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Futura', sans-serif;
+    font-weight: 150;
+    margin: 0px;
+}
+
+.nav a.activebar {
+    color: #F06E1E;
+    margin: 0px;
+    float:left;
+    padding: 16px;
+    text-align: center;
+    
+    text-decoration: none;
+    font-family: 'Futura', sans-serif;
+    font-weight: 150;
+    
+}
+
+#color-picker {
+    margin: 100px;
+}
