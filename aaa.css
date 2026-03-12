@@ -7,11 +7,15 @@
   --small_text: 16px;
   --large_text: 24px;
   --input-width: 200px;
+  --input-height: 30px;
+  --radius: 16px;
 
 }
 @media (pointer: coarse) {
     :root {
         --input-width: 60vw;
+        --input-height: 10vw;
+        --radius: 5vw;
     }
     
 }
@@ -90,7 +94,7 @@
         line-height: normal;
     }
     .text_field {
-        border-radius: 16px;
+        border-radius: var(--radius);
         padding: 8px;
         text-align: center;
         font-family: "B612 Mono", monospace;
@@ -101,7 +105,7 @@
         background: var(--transaccent);
         transition: border 0.2s ease;
         width:var(--input-width);
-        height: 30px;
+        height:var(--input-height);
 
     }
     .text_field:hover {
@@ -115,8 +119,9 @@
         font-family: "B612 Mono", monospace;
         font-weight: 400;
         font-style: normal;
+        color: #000000 !important;
         font-size: var(--normal_text);
-        border-radius: 16px;
+        border-radius: var(--radius);
         background: var(--accent);
         cursor: pointer;
         transition: background-color 0.2s ease;

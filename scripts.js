@@ -9,8 +9,6 @@ function err(text) {
     document.getElementById("err_txt").textContent = text;
     document.getElementById("results").style.visibility = 'hidden';
     document.getElementById("err_txt").style.visibility = 'visible';
-    console.error("something went wrong. err: " + text);
-
 }
 async function get_data(text) {
   try {
