@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Just+Me+Again+Down+Here&display=swap" rel="stylesheet">
 	<style>
 	</style>
+
 </head>
 <body class="page">
     <div class="main">
@@ -16,30 +17,31 @@
         <t class="tx">enter star ID here</t>
         
         <div class="hdiv" style="margin-top: 20px;">
-            <input class="text_field">
-            <button class="submit">submit</button>
+            <input class="text_field" id="in">
+            <button class="submit" id="submit_button" onclick="submitted()">submit</button>
         </div>
 
         <hr style="width:100%; margin-bottom: 0px; margin-top: 28px;">
         
-        <div class="vdiv" style="margin-top: 24px;">
+        <div class="vdiv" id="results" style="margin-top: 24px;">
             <div>
                 <span class="tx">star</span>
-                <span class="tx">67</span>
+                <span class="tx" id="str_txt">67</span>
                 <span class="tx">says:</span>
             </div>
             
-            
-            <t id="result" class="tx" style="font-size:medium;">the quick brown fox jumped over the lazy dog</t>
-            
-            <t id="date" class="tx" style="font-size: small;">3/22/33</t>
-        </div>
+            <t id="msg_txt" class="tx" style="font-size:medium;">the quick brown fox jumped over the lazy dog</t>
+            <t id="date_txt" class="tx" style="font-size: small;">3/22/33</t>
         
+        </div>
+
+        <t id="err_txt" class="tx" style="visibility:hidden; font-size:medium; margin-top: 24px;">error</t>
+
         
     <hr>
 
     </div>
-    
+    <script src="scripts.js"></script>
 </body>
 	
 
