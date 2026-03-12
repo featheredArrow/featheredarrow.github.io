@@ -45,6 +45,8 @@ function submitted(){
     const text = document.getElementById("in").value;
     if(text != ""){
         get_data(text);
+    } else {
+        err("enter a star ID!");
     }
 }
     
