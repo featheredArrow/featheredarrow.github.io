@@ -1,5 +1,11 @@
-.enter {
-    
+:root {
+  --bg: #FBF9F7; 
+  --accent: #98D6EB;
+  --active: #67C4E3;
+  --transaccent: rgba(152, 214, 235, 0.20);
+}
+.page {
+    background: var(--bg);
 }
 .main {
     display: flex;
@@ -7,11 +13,25 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    height: 100vh;
-    background: var(--Color, #FBF9F7);
+    height: 90vh;
     gap: 4px;
+    margin-left: 36px;
+    margin-right: 36px;
 }
-
+.hdiv {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 4px
+}
+.vdiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 24px
+}
 h1 {
     color: #000;
 
@@ -21,4 +41,50 @@ h1 {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+.tx {
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: small;
+    
+}
+
+
+.text_field {
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: medium;
+    border: 2px solid var(--accent);
+    background: var(--transaccent);
+    transition: border 0.2s ease;
+
+}
+.text_field:hover {
+    border: 2px solid var(--active);
+}
+
+.text_field:focus {
+    border: 2px solid var(--active);
+}
+
+.submit {
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: small;
+    border-radius: 12px;
+    background: var(--accent);
+    cursor: pointer; /* Change cursor to a hand icon on hover */
+    transition: background-color 0.2s ease;
+    border: 0px;
+    padding: 8px;
+}
+
+.submit:hover {
+    background: var(--active);
 }
