@@ -9,40 +9,45 @@
     <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Just+Me+Again+Down+Here&display=swap" rel="stylesheet">
 	<style>
 	</style>
-
 </head>
 <body class="page">
     <div class="main">
         <h1>GLUB STARS</h1>
-        <t class="tx">enter star ID here</t>
-        
-        <div class="hdiv" style="margin-top: 20px;">
-            <input class="text_field" id="in">
-            <button class="submit" id="submit_button" onclick="submitted()">submit</button>
-        </div>
 
-        <hr style="width:80vw; margin-bottom: 0px; margin-top: 28px;">
-        
-        <div class="vdiv" id="results">
-            <div >
-                <span class="tx_small" >star </span>
-                <span class="tx_small"  id="str_txt">67</span>
-                <span class="tx_small">says:</span>
+        <div class="form" id="form">
+            <div class="hdiv" >
+                <label for="key_in" class="tx">key:</label>
+                <input type="text" id="key_in" name="key" class="text_field">
             </div>
             
-            <t id="msg_txt" class="tx_large"></t>
-            <t id="date_txt" class="tx_small"></t>
+            <div class="hdiv" >
+                <label for="star_in" class="tx">star ID:</label>
+                <input type="text" id="id_in" name="id" class="text_field">
+            </div>
+            
+             <div class="hdiv" text-align: center;>
+                <button onclick="submitted()" class="submit" >Submit</button>
+             </div>
+            </div>
+
+
+
         
+        <hr style="width:80vw; margin-bottom: 0px; margin-top: 28px;">
+        <div class="vdiv" id="results">
+            <t class="tx_small" >star </t>
+            <div >
+                <t class="tx_small" >star </t>
+                <t class="tx_small"  id="str_txt">67</t>
+                <t class="tx_small">says:</t>
+            </div>
+            <t id="msg_txt" class="tx_large">67</t>
+            <t id="date_txt" class="tx_small">67/67/67</t>
+            <t class="tx_small" >star </t>
         </div>
-
         <t id="err_txt" class="tx" style="visibility:hidden; margin-top: 24px;">error</t>
-
-        
     <hr>
-
     </div>
     <script src="scripts.js"></script>
 </body>
-	
-
 </html>

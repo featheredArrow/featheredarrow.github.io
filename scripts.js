@@ -2,18 +2,20 @@
 
 
 
-const app_url = 'https://script.google.com/macros/s/AKfycbx2u7RolSpZHJ29caPIQ9H5YJl0wAGN8cSxDcnSyEOpKBtgVSFk6LW3ms8yhJmdlJYl/exec';
-
+const app_url_1 = 'https://script.google.com/macros/s/AKfycbx2u7RolSpZHJ29caPIQ9H5YJl0wAGN8cSxDcnSyEOpKBtgVSFk6LW3ms8yhJmdlJYl/exec';
+const app_url = 'https://script.google.com/macros/s/AKfycbyJqXZ8psHHsRelscbPnNYoyhFpL1txFdgqJCssMdDoNn3olGkioNlB2nJqAMDg_LgP/exec';
 function err(text) {
     
     document.getElementById("err_txt").textContent = text;
     document.getElementById("results").style.visibility = 'hidden';
     document.getElementById("err_txt").style.visibility = 'visible';
 }
-async function get_data(text) {
+async function get_data(key, id) {
+    console.log("pair: " + key + ", " + id);
   try {
     err("...");
-    const u = app_url + "?str=" + text;
+    const u = app_url + "?id=" + id + "&key=" + key;
+    console.log(u);
     const response = await fetch(u, {
         method: 'GET',
     });
@@ -32,7 +34,7 @@ async function get_data(text) {
         document.getElementById("str_txt").textContent = data[0] + " ";
     } else{
         
-        err("this star doesn't exist!");
+        err(data[0]);
     }
   } catch (error) {
     err("something went wrong with fetching the data. please cry")
@@ -41,11 +43,15 @@ async function get_data(text) {
 }
 
 function submitted(){
-    const text = document.getElementById("in").value;
-    if(text != ""){
-        get_data(text);
+    
+    console.log("button pressed");
+    const key = document.getElementById("key_in").value;
+    const id = document.getElementById("id_in").value;
+    
+    if(id != "" && key != ""){
+        get_data(key, id);
     } else {
-        err("enter a star ID!");
+        err("please fill all boxes!");
     }
 }
     
