@@ -32,6 +32,7 @@ async function get_data(key, id) {
         document.getElementById("msg_txt").textContent = data[2];
         document.getElementById("date_txt").textContent = data[1];
         document.getElementById("str_txt").textContent = data[0] + " ";
+        document.getElementById("total_txt").textContent = " • you've opened " + data[3] + " stars"
     } else{
         
         err(data[0]);

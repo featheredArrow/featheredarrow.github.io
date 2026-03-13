@@ -1,19 +1,20 @@
 :root {
-  --bg: #FBF9F7; 
-  --accent: #98D6EB;
-  --active: #67C4E3;
-  --transaccent: rgba(152, 214, 235, 0.20);
-  --normal_text: 20px;
-  --small_text: 16px;
-  --large_text: 24px;
-  --input-width: 200px;
-  --input-height: 30px;
-  --radius: 16px;
-  --pad: 8px;
-  --h1_text: 50px;
-  
+    --bg: #FBF9F7;
+    --accent: #98D6EB;
+    --active: #67C4E3;
+    --transaccent: rgba(152, 214, 235, 0.20);
+    --normal_text: 20px;
+    --small_text: 16px;
+    --large_text: 24px;
+    --input-width: 200px;
+    --input-height: 30px;
+    --radius: 16px;
+    --pad: 12px;
+    --h1_text: 50px;
+
 
 }
+
 @media (pointer: coarse) {
     :root {
         --input-width: 60vw;
@@ -25,43 +26,49 @@
         --pad: 2vw;
         --h1_text: 12vw;
     }
-    
+
+    .text_field {
+        height: var(--input-height);
+    }
+
 }
+
 .page {
     background: var(--bg);
 }
-    
+
 .form {
-    display:grid;
+    display: grid;
     flex-direction: column;
     text-align: right;
     justify-content: right;
     gap: var(--pad);
-    
+
 }
 
 .hdiv {
     display: inline;
     flex-direction: row;
-    
-    text-align:right;
-    vertical-align:bottom;
+
+    text-align: right;
+    vertical-align: bottom;
     justify-content: right;
     gap: var(--pad);
 }
+
 .vdiv {
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    
+
     margin-top: 24px;
     margin-left: 15%;
     margin-right: 15%;
-    visibility: visible;
+    visibility: hidden;
     gap: var(--pad);
 }
-    
+
 
 
 .submit:hover {
@@ -71,79 +78,85 @@
 
 
 
-    .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        gap: 4px;
-        height: 90vh;
-    }
-    .tx {
-        font-family: "B612 Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-        font-size: var(--normal_text);
-        
-    }
-    .tx_small {
-        font-family: "B612 Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-        font-size: var(--small_text);
-        
-    }
-    .tx_large {
-        font-family: "B612 Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-        font-size: var(--large_text);
-        
-    }
-    h1 {
-        color: #000;
-        text-align: center;
-        font-family: "Just Me Again Down Here", cursive;
-        font-size: var(--h1_text);
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
-    .text_field {
-        border-radius: var(--radius);
-        padding: var(--pad);
-        text-align: center;
-        font-family: "B612 Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-        font-size: var(--normal_text);
-        border: 2px solid var(--accent);
-        background: var(--transaccent);
-        transition: border 0.2s ease;
-        width:var(--input-width);
-        height:var(--input-height);
-        
-    }
-    .text_field:hover {
-        border: 2px solid var(--active);
-    }
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 4px;
+    height: 90vh;
+}
 
-    .text_field:focus {
-        border: 2px solid var(--active);
-    }
-    .submit {
-        font-family: "B612 Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-        color: #000000 !important;
-        font-size: var(--normal_text);
-        border-radius: var(--radius);
-        background: var(--accent);
-        cursor: pointer;
-        width: min-content;
-        transition: background-color 0.2s ease;
-        border: 0px;
-        padding: var(--pad);
-        
-    }
+.tx {
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--normal_text);
+
+}
+
+.tx_small {
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--small_text);
+
+}
+
+.tx_large {
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--large_text);
+
+}
+
+h1 {
+    color: #000;
+    text-align: center;
+    font-family: "Just Me Again Down Here", cursive;
+    font-size: var(--h1_text);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text_field {
+    border-radius: var(--radius);
+    padding: var(--pad);
+    text-align: center;
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--normal_text);
+    border: 2px solid var(--accent);
+    background: var(--transaccent);
+    transition: border 0.2s ease;
+    width: var(--input-width);
+
+}
+
+.text_field:hover {
+    border: 2px solid var(--active);
+}
+
+.text_field:focus {
+    border: 2px solid var(--active);
+}
+
+.submit {
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000 !important;
+    font-size: var(--normal_text);
+    border-radius: var(--radius);
+    background: var(--accent);
+    cursor: pointer;
+    width: min-content;
+    transition: background-color 0.2s ease;
+    border: 0px;
+    padding: var(--pad);
+
+}
