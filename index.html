@@ -16,13 +16,13 @@
 
         <div class="form" id="form">
             <div class="hdiv" >
-                <label for="key_in" class="tx">key:</label>
-                <input type="text" id="key_in" name="key" class="text_field">
+                <label for="key_in" class="tx purple">key:</label>
+                <input id="key_in" name="key" class="text_field">
             </div>
             
             <div class="hdiv" >
-                <label for="star_in" class="tx">star ID:</label>
-                <input type="text" id="id_in" name="id" class="text_field">
+                <label for="star_in" class="tx purple">star ID:</label>
+                <input id="id_in" name="id" class="text_field">
             </div>
             
              <div class="hdiv" text-align: center;>
@@ -36,19 +36,26 @@
         <hr style="width:80vw; margin-bottom: 0px; margin-top: 28px;">
         <div class="vdiv" id="results">
             <div >
-                <t class="tx_small" >star </t>
-                <t class="tx_small"  id="str_txt">67</t>
-                <t class="tx_small">says:</t>
+                <t class="tx_small purple" >star </t>
+                <t class="tx_small purple"  id="str_txt">67</t>
+                <t class="tx_small purple">says:</t>
             </div>
             <t id="msg_txt" class="tx_large">67</t>
             <div>
-                <t id="date_txt" class="tx_small">67/67/67</t>
-                <t id="total_txt" class="tx_small">hey</t>
+                <t id="date_txt" class="tx_small purple">67/67/67</t>
+                &nbsp;
+                <t class="tx_small purple"> • you've opened </t>
+                <t id="total_txt" class="tx_small purple">hey</t>
+                &nbsp;
+                <t class="tx_small purple">stars</t>
             </div>
         </div>
+
+        <img id="slug" style="visibility: hidden;" src="slugload-small.gif">
         <t id="err_txt" class="tx" style="visibility:hidden; margin-top: 24px;">error</t>
-    <hr>
+
     </div>
+    
     <script src="scripts.js"></script>
 </body>
 </html>

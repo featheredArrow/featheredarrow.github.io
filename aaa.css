@@ -2,6 +2,7 @@
     --bg: #FBF9F7;
     --accent: #98D6EB;
     --active: #67C4E3;
+    --purple: #22155D;
     --transaccent: rgba(152, 214, 235, 0.20);
     --normal_text: 20px;
     --small_text: 16px;
@@ -57,7 +58,7 @@
 }
 
 .vdiv {
-    display: flex;
+    display: none;
     flex-direction: column;
     text-align: center;
     justify-content: center;
@@ -65,7 +66,6 @@
     margin-top: 24px;
     margin-left: 15%;
     margin-right: 15%;
-    visibility: hidden;
     gap: var(--pad);
 }
 
@@ -113,12 +113,12 @@
 }
 
 h1 {
-    color: #000;
+    color: var(--purple);
     text-align: center;
     font-family: "Just Me Again Down Here", cursive;
     font-size: var(--h1_text);
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     line-height: normal;
 }
 
@@ -141,6 +141,9 @@ h1 {
     border: 2px solid var(--active);
 }
 
+.purple {
+    color: var(--purple);
+}
 .text_field:focus {
     border: 2px solid var(--active);
 }
@@ -159,4 +162,8 @@ h1 {
     border: 0px;
     padding: var(--pad);
 
+}
+
+.bold {
+    font-weight: 600;
 }
