@@ -2,8 +2,7 @@
 
 
 
-const app_url_1 = 'https://script.google.com/macros/s/AKfycbx2u7RolSpZHJ29caPIQ9H5YJl0wAGN8cSxDcnSyEOpKBtgVSFk6LW3ms8yhJmdlJYl/exec';
-const app_url = 'https://script.google.com/macros/s/AKfycbyJqXZ8psHHsRelscbPnNYoyhFpL1txFdgqJCssMdDoNn3olGkioNlB2nJqAMDg_LgP/exec';
+const app_url = 'https://script.google.com/macros/s/AKfycbxHOsGCnrS5wcgWBppIMCzHNwSXt-XRiTIsp-XqE2l0hDXSOS8Iy186fdUkYOcMUfDy/exec';
 function err(text) {
     
     document.getElementById("err_txt").textContent = text;
