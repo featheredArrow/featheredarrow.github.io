@@ -36,7 +36,7 @@
 
 .page {
     background-image: url(starbg.png);
-    background-size:256px;
+    background-size:512px;
     background-repeat: repeat;
     background-position:center;
     background-attachment: fixed; 
