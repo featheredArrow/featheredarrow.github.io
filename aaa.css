@@ -35,7 +35,11 @@
 }
 
 .page {
-    background: var(--bg);
+    background-image: url(starbg.png);
+    background-size:256px;
+    background-repeat: repeat;
+    background-position:center;
+    background-attachment: fixed; 
 }
 
 .form {
