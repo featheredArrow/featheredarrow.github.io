@@ -2,7 +2,7 @@
 
 
 
-const app_url = 'https://script.google.com/macros/s/AKfycbwg5biPXbHneRk-URfhovokySfXDZA6ABDbaqlwuG4Q7ty-JYjwNVqzgAspPkxbJPBV/exec';
+const app_url = 'https://script.google.com/macros/s/AKfycbzc0qnl3L1QxVCHjdX0Jylr1eUJEXDkmh0pzzgiB2w49KnxOhb9AQ1t8HuxZWbfqZm9/exec';
 function err(text) {
     
     document.getElementById("err_txt").textContent = text;
