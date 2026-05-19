@@ -2,7 +2,7 @@
 
 
 
-const app_url = 'https://script.google.com/macros/s/AKfycbzc0qnl3L1QxVCHjdX0Jylr1eUJEXDkmh0pzzgiB2w49KnxOhb9AQ1t8HuxZWbfqZm9/exec';
+const app_url = 'https://script.google.com/macros/s/AKfycbytl05bquHKYsnL_gJzweDeYCBPLq7EMjLE5N12F63I0alM68-sMxXbjna4MCFjUBOL/exec';
 function err(text) {
     
     document.getElementById("err_txt").textContent = text;
@@ -29,13 +29,22 @@ async function get_data(key, id) {
     //all is good, ball.
     
     if(data[1]!=null){
+        var found = data[3];
+        var total = data[4];
         document.getElementById("slug").style.visibility = 'hidden';
         document.getElementById("err_txt").style.display = 'none';
         document.getElementById("results").style.display = 'flex';
         document.getElementById("msg_txt").textContent = data[2];
         document.getElementById("date_txt").textContent = data[1];
         document.getElementById("str_txt").textContent = data[0] + " ";
-        document.getElementById("total_txt").textContent = data[3]
+
+        per = (100 * (data[3]/data[4])).toFixed(1);
+
+        var str = " • you've opened " + data[3] + " out of " + data[4] + " stars (" + per + "%)";
+        document.getElementById("total_txt").textContent = str;
+
+
+        var percent = data
     } else{
         document.getElementById("slug").style.visibility = 'hidden';
         err(data[0]);
